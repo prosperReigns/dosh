@@ -1,0 +1,22 @@
+CREATE TABLE "person" (
+    "id" INTEGER,
+    "name" TEXT,
+    PRIMARY KEY("id")
+    );
+
+CREATE TABLE "car_company" (
+    "company_id", INTEGER
+    "name" TEXT NOT NULL,
+    PRIMARY KEY("company_id")
+    );
+
+CREATE TABLE "buy_car" (
+    "car_id" INTEGER,
+    "car_company_id" INTEGER,
+    "person_id" INTEGER,
+    "price" NUMERIC NOT NULL,
+    "brand" TEXT NOT NULL,
+    PRIMARY KEY("car_id"),
+    FOREIGN KEY("car_company_id") REFERENCES car_company("company_id"),
+    FOREIGN KEY("person_id") REFERENCES person("id")
+    );
