@@ -1,1 +1,26 @@
-CREATE TABLE 
+CREATE TABLE person (
+    "admission_num" INTEGER,
+    "name" TEXT NOT NULL,
+    PRIMARY KEY("admission_num")
+    );
+
+CREATE TABLE school (
+    "school_id" INTEGER ,
+    "name" TEXT NOT NULL,
+    "institution" TEXT NOT NULL,
+    "location" TEXT NOT NULL,
+    "status" INTEGER NOT NULL,
+    PRIMARY KEY("School_id")
+    );
+
+CREATE TABLE enrollment (
+    "enroll_id" INTEGER,
+    "person_id" INTEGER,
+    "school_id" INTEGER,
+    "department" TEXT,
+    "course" TEXT,
+    "fee" NUMERIC NOT NULL,
+    PRIMARY KEY("enroll_id"),
+    FOREIGN KEY("person_id") REFERENCES  person("admission_num"),
+    FOREIGN KEY("school_id") REFERENCES school("school_id")
+    );
